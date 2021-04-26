@@ -13,7 +13,7 @@ const SESS_NAME ='user';
 const SESS_SECRET ='hush,secret time';
 const SESS_LIFETIME = 1000 *60 *60;
 
-mongoose.connect('mongodb+srv://mongoAdmin:GzX4DxIvPsZhfVK3@ben-practice-1.s8mam.mongodb.net/shape_db?retryWrites=true&w=majority',{
+mongoose.connect('',{
     useNewUrlParser:true,
     useCreateIndex:true,
     useFindAndModify:false,
@@ -40,7 +40,7 @@ app.use(session(
     secret:SESS_SECRET,
     store: MongoStore.create(
       {
-        mongoUrl:'mongodb+srv://mongoAdmin:GzX4DxIvPsZhfVK3@ben-practice-1.s8mam.mongodb.net/shape_db?retryWrites=true&w=majority',
+        mongoUrl:'',
         collection:'sessions',
         ttl:parseInt(SESS_LIFETIME/1000),
       }),
