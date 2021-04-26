@@ -3,7 +3,7 @@ const userHelper = require('../util/userHelper');
 
 exports.ViewAll = async(req,res) =>{
     try{
-    var allShapes = await shapeModel.find();
+        const allShapes = await shapeModel.find({createdBy:req.session.user});
     res.status(200).send(allShapes);
 
     }catch(err){
@@ -14,7 +14,7 @@ exports.ViewAll = async(req,res) =>{
 
 exports.View = async(req,res) =>{
     try{
-    var shape = await shapeModel.find({shapeId:req.params.id});
+    const shape = await shapeModel.findOne({shapeNumber:req.params.id});
     res.status(200).send(shape);
 
     }catch(err){

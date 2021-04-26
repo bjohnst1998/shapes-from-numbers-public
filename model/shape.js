@@ -5,9 +5,6 @@ var connection = mongoose.connection;
 autoIncrement.initialize(connection);
 
 const shapeSchema = new mongoose.Schema({
-    shapeId:{
-        type:Number,        
-    },
     shapeName:{
         type:String,
         required:true
