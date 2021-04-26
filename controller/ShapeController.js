@@ -29,7 +29,7 @@ exports.Create = async(req,res) =>{
         var createdBy = req.session.user;
         console.log(req.session);
         const newShape = await shapeModel.create({shapeName:shapeName,createdBy:createdBy});
-        userHelper.IncrementCreated();
+        userHelper.IncrementCreated(createdBy);
         res.status(201).send(newShape);
     }catch(err){
         console.log(err);

@@ -86,10 +86,14 @@ exports.Logout = async (req,res) => {
     }
 }
 
-exports.UpdateShapeCount = async() =>{
+exports.UpdateShapeCount = async(username) =>{
     try{
-        const user = req.session.user;
-        const updated = await userModel.findOneAndUpdate({username:user},{shapesCreated:user.shapesCreated+1});
+        const user = username;
+        const userToUpdate = await userModel.findOne({username:user});
+        console.log(user);
+        var count = userToUpdate.shapesCreated + 1;
+        const updatedValue = await userModel.findOneAndUpdate({username:user},{shapesCreated:count},{new:true});
+        console.log(updatedValue);
     }catch(err)
     {
         throw new Error(`An Error has occurred: ${err}`);
