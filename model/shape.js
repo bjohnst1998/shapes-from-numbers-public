@@ -15,7 +15,7 @@ const shapeSchema = new mongoose.Schema({
     },
     lastModifiedBy:{
         type:String,
-        
+        default:''
         
     }
 });

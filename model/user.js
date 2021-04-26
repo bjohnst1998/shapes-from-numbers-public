@@ -13,6 +13,7 @@ const userSchema = mongoose.Schema(
         },
         shapesCreated: {
             type:Number,
+            default:0
         }
     }
 )
